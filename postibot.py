@@ -25,8 +25,9 @@ async def on_message(message):
         return
 
     if 'onk postii' in message.content or message.content == '!posti':
-        subprocess.call([PATH+'/webcam.sh'])
+        subprocess.run([PATH+'/lamput.sh', '1'])
+        subprocess.run([PATH+'/webcam.sh'])
         await message.channel.send(file=discord.File(PATH+'posti.jpg'))
-
+        subprocess.run([PATH+'/lamput.sh', '0'])
 
 client.run(TOKEN)
